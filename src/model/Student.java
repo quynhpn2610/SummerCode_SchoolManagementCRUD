@@ -8,16 +8,14 @@ public class Student implements Serializable {
     private int id;
     private String name;
     private Date dateOfBirth;
-    private String address;
 
     public Student() {
     }
 
-    public Student(int id, String name, Date dateOfBirth, String address) {
+    public Student(int id, String name, Date dateOfBirth) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
-        this.address = address;
     }
 
     public int getId() {
@@ -44,21 +42,12 @@ public class Student implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-                ", address='" + address + '\'' +
                 '}';
     }
 }
