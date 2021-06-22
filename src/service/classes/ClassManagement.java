@@ -1,4 +1,4 @@
-package service;
+package service.classes;
 
 import model.Class;
 

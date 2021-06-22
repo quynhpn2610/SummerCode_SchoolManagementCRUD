@@ -1,13 +1,14 @@
-package service;
+package service.students;
 
 import model.Class;
 import model.Student;
+import service.students.IStudentsManagement;
 
 import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 
-public class StudentsManagement implements IStudentsManagement{
+public class StudentsManagement implements IStudentsManagement {
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -16,12 +17,7 @@ public class StudentsManagement implements IStudentsManagement{
     }
 
     @Override
-    public void showStudent(Class c) {
-
-    }
-
-    @Override
-    public void showAll() {
+    public void showStudent(int id) {
 
     }
 
