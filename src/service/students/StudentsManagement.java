@@ -14,6 +14,7 @@ public class StudentsManagement implements IStudentsManagement {
     @Override
     public void saveStudent(Student s) throws IOException {
 
+
     }
 
     @Override
@@ -22,12 +23,12 @@ public class StudentsManagement implements IStudentsManagement {
     }
 
     @Override
-    public void updateStudent(Class s, int id, String name, Date dateOfBirth) {
+    public void updateStudent(int id, int newId, String newName, Date newDateOfBirth) {
 
     }
 
     @Override
-    public void deleteStudent(Class s, int id) {
+    public void deleteStudent(int id) {
 
     }
 
