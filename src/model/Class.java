@@ -15,6 +15,12 @@ public class Class {
         this.students = students;
     }
 
+    public Class(String type, int id, double rate) {
+        this.type = type;
+        this.id = id;
+        this.rate = rate;
+    }
+
     public String getType() {
         return type;
     }
