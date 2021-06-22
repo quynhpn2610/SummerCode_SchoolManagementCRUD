@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Date;
 
 public interface IStudentsManagement {
-    Class selectClass();
 
     void saveStudent(Student s) throws IOException;
 
@@ -18,7 +17,5 @@ public interface IStudentsManagement {
     void updateStudent(Class s, int id, String name, Date dateOfBirth);
 
     void deleteStudent(Class s, int id);
-
-    void deleteClass(Class s);
 
 }
