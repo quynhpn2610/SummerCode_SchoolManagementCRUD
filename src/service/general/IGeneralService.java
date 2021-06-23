@@ -16,5 +16,6 @@ public interface IGeneralService<T>{
 //    Student updatedStudent = new Student(0, "Tin");
 //    studentList.remove student where student.id == userInput
 //    updatedStudent.setId(userInput);
+    void delete(int key);
 
 }

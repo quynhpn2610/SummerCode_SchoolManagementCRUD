@@ -52,4 +52,13 @@ public class Class {
     public void addStudents(Student s){
         students.add(s);
     }
+
+    @Override
+    public String toString() {
+        return "Class{" +
+                "type='" + type + '\'' +
+                ", id=" + id +
+                ", rate=" + rate +
+                '}';
+    }
 }

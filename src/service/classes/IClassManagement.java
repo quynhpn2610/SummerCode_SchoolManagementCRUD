@@ -1,15 +1,8 @@
 package service.classes;
 
 import model.Class;
+import service.general.IGeneralService;
 
-public interface IClassManagement {
-    void save(Class c);
+public interface IClassManagement extends IGeneralService<Class>{
 
-    void show(int classId);
-
-    void update(int classId, int newId, String newType, double newRate);
-
-    void delete(int classId);
-
-    Class selectClass();
 }
