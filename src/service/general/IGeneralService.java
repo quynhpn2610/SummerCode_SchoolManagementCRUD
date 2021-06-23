@@ -7,6 +7,8 @@ public interface IGeneralService<T>{
 
     void show(int key);
 
+    void showAll();
+
     void update(int key, T newT);   // 1 -> Ton  1-> Tin
                                     // 0 -> Tin newT.setId(1), xoa' Ton
                                     // 1 -> Tin
