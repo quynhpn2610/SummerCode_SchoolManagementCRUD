@@ -2,12 +2,9 @@ package service.students;
 
 import model.Class;
 import model.Student;
-import service.students.IStudentsManagement;
 import service.classes.ClassManagement;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 public class StudentsManagement implements IStudentsManagement {
@@ -48,21 +45,59 @@ public class StudentsManagement implements IStudentsManagement {
                 System.out.println(s.toString());
             }
         }
-
     }
 
     @Override
     public void showAll() {
+        for (Student s:
+                masterStudentList){
+            System.out.println(s.toString());
+        }
+    }
+
+    @Override
+    public void update(int id, Student updatedStudent) {
+        int count = 0;
+        if(masterStudentList.isEmpty()){
+            System.out.println("No student to update");
+        }
+        for (Student s:
+             masterStudentList) {
+            if(s.getId() == id){
+                s.setId(updatedStudent.getId());
+                s.setName(updatedStudent.getName());
+                s.setDateOfBirth(updatedStudent.getDateOfBirth());
+            }
+            count ++;
+        }
+        if(count == 0){
+            System.out.println("Cannot update");
+        }
+        else {
+            System.out.println("Student " + updatedStudent.getName() + " successfully updated");
+        }
 
     }
 
     @Override
-    public void update(int key, Student newT) {
-
-    }
-
-    @Override
-    public void delete(int key) {
-
+    public void delete(int id) {
+        int count = 0;
+        if(masterStudentList.isEmpty()){
+            System.out.println("No student to delete");
+        }
+        for (Student s:
+                masterStudentList) {
+            if(s.getId() == id){
+                masterStudentList.remove(s);
+                ClassManagement.classList.remove(s);
+            }
+            count ++;
+        }
+        if(count == 0){
+            System.out.println("Cannot update");
+        }
+        else {
+            System.out.println("Student successfully deleted");
+        }
     }
 }

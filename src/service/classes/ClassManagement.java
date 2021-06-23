@@ -55,7 +55,7 @@ public class ClassManagement implements IClassManagement{
             System.out.println("Cannot update");
         }
         else{
-            System.out.println("Class successfully updated");
+            System.out.println("Class " + newClass.getId() + " successfully updated");
         }
 
     }
