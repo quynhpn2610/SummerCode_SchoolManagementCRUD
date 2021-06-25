@@ -1,6 +1,7 @@
 package service.classes;
 
 import model.Classes;
+import service.IO;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,12 +12,17 @@ public class ClassManagement implements IClassManagement{
     Scanner sc = new Scanner(System.in);
 
     @Override
-    public void save(Classes newClass){
+    public void save(Classes newClass) throws IOException {
         classesList.add(newClass);
+        IO.writeFile();
     }
 
     @Override
     public void show(int classId) {
+        try {classesList = IO.readFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if(classesList.isEmpty()){
             System.out.println("No class to show");
         }
@@ -29,6 +35,10 @@ public class ClassManagement implements IClassManagement{
 
     @Override
     public void showAll() {
+        try {classesList = IO.readFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if(classesList.isEmpty()){
             System.out.println("No class to show");
         }
@@ -57,6 +67,11 @@ public class ClassManagement implements IClassManagement{
         else{
             System.out.println("Class " + newClass.getId() + " successfully updated");
         }
+        try {
+            IO.writeFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -79,6 +94,11 @@ public class ClassManagement implements IClassManagement{
         }
         else{
             System.out.println("Class successfully updated");
+        }
+        try {
+            IO.writeFile();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

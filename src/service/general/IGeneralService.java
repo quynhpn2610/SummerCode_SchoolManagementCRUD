@@ -2,8 +2,10 @@ package service.general;
 
 import model.Student;
 
+import java.io.IOException;
+
 public interface IGeneralService<T>{
-    void save(T obj);
+    void save(T obj) throws IOException;
 
     void show(int key);
 
