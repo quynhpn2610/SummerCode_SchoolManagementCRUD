@@ -1,26 +1,26 @@
 package service.classes;
 
-import model.Class;
+import model.Classes;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ClassManagement implements IClassManagement{
-    public static ArrayList<Class> classList = new ArrayList<>();
+    public static ArrayList<Classes> classesList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     @Override
-    public void save(Class newClass){
-        classList.add(newClass);
+    public void save(Classes newClass){
+        classesList.add(newClass);
     }
 
     @Override
     public void show(int classId) {
-        if(classList.isEmpty()){
+        if(classesList.isEmpty()){
             System.out.println("No class to show");
         }
-        for (Class c: classList) {
+        for (Classes c: classesList) {
             if(c.getId() == classId){
                 System.out.println(c.toString());
             }
@@ -29,21 +29,21 @@ public class ClassManagement implements IClassManagement{
 
     @Override
     public void showAll() {
-        if(classList.isEmpty()){
+        if(classesList.isEmpty()){
             System.out.println("No class to show");
         }
-        for (Class c: classList) {
+        for (Classes c: classesList) {
             System.out.println(c.toString());
         }
     }
 
     @Override
-    public void update(int classId, Class newClass) {
+    public void update(int classId, Classes newClass) {
         int count = 0;
-        if(classList.isEmpty()){
+        if(classesList.isEmpty()){
             System.out.println("No class to update");
         }
-        for (Class c: classList) {
+        for (Classes c: classesList) {
             if(classId == c.getId()){
                 c.setId(newClass.getId());
                 c.setType(newClass.getType());
@@ -63,13 +63,13 @@ public class ClassManagement implements IClassManagement{
     @Override
     public void delete(int classId) {
         int count = 0;
-        if(classList.isEmpty()){
+        if(classesList.isEmpty()){
             System.out.println("No class to delete");
         }
 
-        for (Class c: classList) {
+        for (Classes c: classesList) {
             if(classId == c.getId()){
-                classList.remove(c);
+                classesList.remove(c);
             }
             count++;
         }

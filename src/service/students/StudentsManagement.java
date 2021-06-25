@@ -1,6 +1,6 @@
 package service.students;
 
-import model.Class;
+import model.Classes;
 import model.Student;
 import service.classes.ClassManagement;
 
@@ -11,13 +11,13 @@ public class StudentsManagement implements IStudentsManagement {
     ArrayList<Student> masterStudentList= new ArrayList<>();
     Scanner sc = new Scanner(System.in);
     @Override
-    public Class selectClass() {
+    public Classes selectClass() {
         try {
             System.out.println("------Select a class------");
-            System.out.println(ClassManagement.classList.toString());
+            System.out.println(ClassManagement.classesList.toString());
             System.out.println("Input class ID: ");
             int inputClassId = Integer.parseInt(sc.nextLine());
-            for (Class c: ClassManagement.classList) {
+            for (Classes c: ClassManagement.classesList) {
                 if(c.getId() == inputClassId){
                     return c;
                 }
@@ -31,7 +31,7 @@ public class StudentsManagement implements IStudentsManagement {
 
     @Override
     public void save(Student newStudent) {
-        Class selectedClass = selectClass();
+        Classes selectedClass = selectClass();
         selectedClass.addStudents(newStudent);
         masterStudentList.add(newStudent);
         System.out.println("Student " + newStudent.getName() + " successfully added");
@@ -89,7 +89,7 @@ public class StudentsManagement implements IStudentsManagement {
                 masterStudentList) {
             if(s.getId() == id){
                 masterStudentList.remove(s);
-                ClassManagement.classList.remove(s);
+                ClassManagement.classesList.remove(s);
             }
             count ++;
         }

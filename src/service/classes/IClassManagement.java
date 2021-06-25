@@ -1,8 +1,8 @@
 package service.classes;
 
-import model.Class;
+import model.Classes;
 import service.general.IGeneralService;
 
-public interface IClassManagement extends IGeneralService<Class>{
+public interface IClassManagement extends IGeneralService<Classes>{
 
 }

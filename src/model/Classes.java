@@ -2,20 +2,20 @@ package model;
 
 import java.util.ArrayList;
 
-public class Class {
+public class Classes{
     private String type;
     private int id;
     private double rate;
     private ArrayList<Student> students = new ArrayList<>();
 
-    public Class(String type, int id, double rate, ArrayList<Student> students) {
+    public Classes(String type, int id, double rate, ArrayList<Student> students) {
         this.type = type;
         this.id = id;
         this.rate = rate;
         this.students = students;
     }
 
-    public Class(String type, int id, double rate) {
+    public Classes(String type, int id, double rate) {
         this.type = type;
         this.id = id;
         this.rate = rate;
