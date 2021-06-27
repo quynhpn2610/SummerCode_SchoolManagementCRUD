@@ -53,10 +53,10 @@ public class ClassManagement implements IClassManagement{
         if(classesList.isEmpty()){
             System.out.println("No class to update");
         }
-        for (Classes c: classesList) {
+        for (Classes c: classesList){
             if(classId == c.getId()){
                 c.setId(newClass.getId());
-                c.setType(newClass.getType());
+                c.setLevel(newClass.getLevel());
                 c.setRate(newClass.getRate());
         }
             count++;

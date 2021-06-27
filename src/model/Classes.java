@@ -3,30 +3,30 @@ package model;
 import java.util.ArrayList;
 
 public class Classes{
-    private String type;
+    private String level;
     private int id;
     private double rate;
     private ArrayList<Student> students = new ArrayList<>();
 
-    public Classes(String type, int id, double rate, ArrayList<Student> students) {
-        this.type = type;
+    public Classes(String level, int id, double rate, ArrayList<Student> students) {
+        this.level = level;
         this.id = id;
         this.rate = rate;
         this.students = students;
     }
 
-    public Classes(String type, int id, double rate) {
-        this.type = type;
+    public Classes(String level, int id, double rate) {
+        this.level = level;
         this.id = id;
         this.rate = rate;
     }
 
-    public String getType() {
-        return type;
+    public String getLevel() {
+        return level;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public int getId() {
@@ -56,7 +56,7 @@ public class Classes{
     @Override
     public String toString() {
         return "Class{" +
-                "type='" + type + '\'' +
+                "level='" + level + '\'' +
                 ", id=" + id +
                 ", rate=" + rate +
                 '}';
