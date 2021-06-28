@@ -2,22 +2,25 @@ package service.students;
 
 import model.Classes;
 import model.Student;
+import service.IO;
 import service.classes.ClassManagement;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StudentsManagement implements IStudentsManagement {
     ArrayList<Student> masterStudentList= new ArrayList<>();
+    ClassManagement classManagement = new ClassManagement();
     Scanner sc = new Scanner(System.in);
     @Override
     public Classes selectClass() {
         try {
-            System.out.println("------Select a class------");
-            System.out.println(ClassManagement.classesList.toString());
+            System.out.println("------Select a class from the list below------");
+            classManagement.showAll();
             System.out.println("Input class ID: ");
             int inputClassId = Integer.parseInt(sc.nextLine());
-            for (Classes c: ClassManagement.classesList) {
+            for (Classes c: classManagement.classesList){
                 if(c.getId() == inputClassId){
                     return c;
                 }
@@ -39,6 +42,9 @@ public class StudentsManagement implements IStudentsManagement {
 
     @Override
     public void show(int studentID) {
+        if(masterStudentList.isEmpty()){
+            System.out.println("No student to show");
+        }
         for (Student s:
              masterStudentList) {
             if(s.getId() == studentID){
@@ -49,6 +55,9 @@ public class StudentsManagement implements IStudentsManagement {
 
     @Override
     public void showAll() {
+        if(masterStudentList.isEmpty()){
+            System.out.println("No student to show");
+        }
         for (Student s:
                 masterStudentList){
             System.out.println(s.toString());
@@ -89,12 +98,12 @@ public class StudentsManagement implements IStudentsManagement {
                 masterStudentList) {
             if(s.getId() == id){
                 masterStudentList.remove(s);
-                ClassManagement.classesList.remove(s);
+                classManagement.classesList.remove(s);
             }
             count ++;
         }
         if(count == 0){
-            System.out.println("Cannot update");
+            System.out.println("Cannot delete");
         }
         else {
             System.out.println("Student successfully deleted");

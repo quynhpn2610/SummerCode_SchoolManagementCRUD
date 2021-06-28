@@ -67,7 +67,8 @@ public class Menu {
     }
 
     static int getClassIdToUpdate() {
-        System.out.println("---Update a class---");
+        System.out.println("---Update a class in the list below---");
+        classManagement.showAll();
         System.out.println("Enter class id");
         return Integer.parseInt(sc.nextLine());
     }
@@ -83,7 +84,8 @@ public class Menu {
     }
 
     static int getClassIdToDelete() {
-        System.out.println("---Delete a class---");
+        System.out.println("---Delete a class from the list below---");
+        classManagement.showAll();
         System.out.println("Enter class id");
         return Integer.parseInt(sc.nextLine());
     }

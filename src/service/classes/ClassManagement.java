@@ -8,16 +8,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ClassManagement implements IClassManagement{
-    public static ArrayList<Classes> classesList = new ArrayList<>();
+    public ArrayList<Classes> classesList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     @Override
-    public void save(Classes newClass) throws IOException {
+    public void save(Classes newClass) {
         classesList.add(newClass);
         try {
+            System.out.println(classesList);
             IO.writeFile(classesList);
         }
-        catch (Exception e) {
+        catch (Exception e){
             e.printStackTrace();
             System.out.println("Cannot write file");
         }
@@ -96,10 +97,10 @@ public class ClassManagement implements IClassManagement{
         }
 
         if (count == 0){
-            System.out.println("Cannot update");
+            System.out.println("Cannot delete");
         }
         else{
-            System.out.println("Class successfully updated");
+            System.out.println("Class successfully deleted");
         }
         try {
             IO.writeFile(classesList);

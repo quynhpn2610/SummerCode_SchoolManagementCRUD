@@ -1,13 +1,16 @@
 package service;
 import model.Classes;
+import service.classes.ClassManagement;
+
 import java.io.*;
 import java.util.ArrayList;
 
-import static service.classes.ClassManagement.classesList;
+//import static service.classes.ClassManagement.classesList;
 
 public class IO {
     static final String filePath = System.getenv("filePath");
     public static File file = new File(filePath);
+    private static ClassManagement classManagement = new ClassManagement();
 
     public static void writeFile(ArrayList<Classes> classesList) throws IOException{
         if (!file.exists()){
@@ -37,13 +40,13 @@ public class IO {
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
         try {
-            for (int i = 0; i < classesList.size(); i++) {
-                Classes myClass = classesList.get(i);
-                myClass = (Classes) objectInputStream.readObject();
+            for (int i = 0; i < classManagement.classesList.size(); i++) {
+                Classes myClass = classManagement.classesList.get(i);
+                myClass = (Classes)objectInputStream.readObject();
             }
             objectInputStream.close();
             fileInputStream.close();
-            return classesList;
+            return classManagement.classesList;
         } catch (FileNotFoundException | ClassNotFoundException e) {
             e.printStackTrace();
             return null;

@@ -54,6 +54,7 @@ public class Main {
                         } catch (NumberFormatException exception) {
                             System.out.println("Invalid input format. Please try again.");
                         }
+                        break;
                     case 2:
                         Menu.showStudentManagementMenu();
                         try {
@@ -77,7 +78,7 @@ public class Main {
                                     studentService.update(studentIdToUpdate, updatedStudent);
                                     break;
                                 case 5:
-                                    int studentIdToDelete = Menu.getClassIdToDelete();
+                                    int studentIdToDelete = Menu.getStudentIdToDelete();
                                     studentService.delete(studentIdToDelete);
                                     break;
                                 case 6:
@@ -95,19 +96,18 @@ public class Main {
                         } catch (NumberFormatException exception2) {
                             System.out.println("Invalid input format. Please try again.");
                         }
+                        break;
                     case 3:
                         System.out.println("Program closing! Bye");
                         condition = false;
                         break;
                     default:
                         System.out.println("Invalid input. Please try again.");
-
+                        break;
                 }
             } catch (Exception e) {
                 System.out.println("Invalid option");
-                Menu.showMasterMenu();
             }
-
         }
     }
 }
