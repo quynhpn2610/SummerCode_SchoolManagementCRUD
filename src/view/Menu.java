@@ -1,10 +1,14 @@
 package view;
 
 import model.Classes;
+import model.Student;
 import service.classes.ClassManagement;
 import service.students.StudentsManagement;
 
-import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
 
 public class Menu {
     private static final Scanner sc = new Scanner(System.in);
@@ -56,6 +60,12 @@ public class Menu {
         return new Classes(classLevel, classId, rate);
     }
 
+    static int getClassIdToSearch() {
+        System.out.println("---Search for a class---");
+        System.out.println("Enter product Id to search");
+        return Integer.parseInt(sc.nextLine());
+    }
+
     static int getClassIdToUpdate() {
         System.out.println("---Update a class---");
         System.out.println("Enter class id");
@@ -78,11 +88,49 @@ public class Menu {
         return Integer.parseInt(sc.nextLine());
     }
 
-    static int getClassIdToSearch() {
-        System.out.println("---Search for a class---");
-        System.out.println("Enter product Id to search");
+
+    static Student getStudentToAdd() throws ParseException {
+        System.out.println("---Add a new student---");
+        System.out.println("Enter student id: ");
+        int id = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter student name: ");
+        String name = sc.nextLine();
+        System.out.println("Enter student DOB (dd/mm/yyyy): ");
+        String dOb = sc.nextLine();
+        Date dateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(dOb);
+        return new Student(id, name, dateOfBirth);
+    }
+
+    static int getStudentIdToSearch() {
+        System.out.println("---Search for a student---");
+        System.out.println("Enter student Id to search");
         return Integer.parseInt(sc.nextLine());
     }
+
+    static int getStudentIdToUpdate() {
+        System.out.println("---Update a student---");
+        System.out.println("Enter student id");
+        return Integer.parseInt(sc.nextLine());
+    }
+
+    static Student getNewStudentInfo() throws ParseException {
+        System.out.println("Enter new student id");
+        int newId = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter new name");
+        String newName = sc.nextLine();
+        System.out.println("Enter new date of birth");
+        String dOb = sc.nextLine();
+        Date dateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(dOb);
+        return new Student(newId, newName, dateOfBirth);
+    }
+
+    static int getStudentIdToDelete() {
+        System.out.println("---Delete a student---");
+        System.out.println("Enter student id");
+        return Integer.parseInt(sc.nextLine());
+    }
+
+
 
 
 
