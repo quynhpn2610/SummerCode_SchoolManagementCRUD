@@ -9,7 +9,7 @@ public class IO {
     static final String filePath = System.getenv("filePath");
     public static File file = new File(filePath);
 
-    public static void writeFile() throws IOException{
+    public static void writeFile(ArrayList<Classes> classesList) throws IOException{
         if (!file.exists()){
             file.createNewFile();
         }

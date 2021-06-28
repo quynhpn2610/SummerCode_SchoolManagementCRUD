@@ -14,7 +14,13 @@ public class ClassManagement implements IClassManagement{
     @Override
     public void save(Classes newClass) throws IOException {
         classesList.add(newClass);
-        IO.writeFile();
+        try {
+            IO.writeFile(classesList);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Cannot write file");
+        }
     }
 
     @Override
@@ -68,7 +74,7 @@ public class ClassManagement implements IClassManagement{
             System.out.println("Class " + newClass.getId() + " successfully updated");
         }
         try {
-            IO.writeFile();
+            IO.writeFile(classesList);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -96,7 +102,7 @@ public class ClassManagement implements IClassManagement{
             System.out.println("Class successfully updated");
         }
         try {
-            IO.writeFile();
+            IO.writeFile(classesList);
         } catch (IOException e) {
             e.printStackTrace();
         }

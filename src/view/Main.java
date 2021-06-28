@@ -5,8 +5,6 @@ import model.Student;
 import service.classes.ClassManagement;
 import service.students.StudentsManagement;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         final ClassManagement classService = new ClassManagement();
