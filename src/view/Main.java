@@ -3,12 +3,14 @@ package view;
 import model.Classes;
 import model.Student;
 import service.classes.ClassManagement;
+import service.classes.IClassManagement;
+import service.students.IStudentsManagement;
 import service.students.StudentsManagement;
 
 public class Main {
     public static void main(String[] args) {
-        final ClassManagement classService = new ClassManagement();
-        final StudentsManagement studentService = new StudentsManagement();
+        final IClassManagement classService = new ClassManagement();
+        final IStudentsManagement studentService = new StudentsManagement();
         boolean condition = true;
         while (condition) {
             Menu.showMasterMenu();
