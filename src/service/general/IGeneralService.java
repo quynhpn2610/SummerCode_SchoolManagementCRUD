@@ -2,10 +2,14 @@ package service.general;
 
 import model.Student;
 
+import java.io.IOException;
+
 public interface IGeneralService<T>{
-    void save(T obj);
+    void save(T obj) throws IOException;
 
     void show(int key);
+
+    void showAll();
 
     void update(int key, T newT);   // 1 -> Ton  1-> Tin
                                     // 0 -> Tin newT.setId(1), xoa' Ton
@@ -16,5 +20,6 @@ public interface IGeneralService<T>{
 //    Student updatedStudent = new Student(0, "Tin");
 //    studentList.remove student where student.id == userInput
 //    updatedStudent.setId(userInput);
+    void delete(int key);
 
 }
